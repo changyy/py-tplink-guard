@@ -1,0 +1,57 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "tplink-guard"
+# Version is read dynamically from src/tplink_guard/_version.py (single source
+# of truth). Scheme: 1.YYYYmmdd.1HHmmss. See [tool.hatch.version] below.
+dynamic = ["version"]
+description = "Per-device firewall / parental control for TP-Link routers over the local HTTPS admin API. Zero dependencies."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Yuan-Yi Chang", email = "changyy.csie@gmail.com" }]
+keywords = ["tp-link", "router", "parental-control", "firewall", "youtube", "mac-randomization"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Operating System :: MacOS",
+    "Operating System :: POSIX :: Linux",
+    "Topic :: Home Automation",
+    "Topic :: System :: Networking :: Firewalls",
+]
+
+# Intentionally empty: standard library only.
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[project.urls]
+Homepage = "https://github.com/changyy/py-tplink-guard"
+Repository = "https://github.com/changyy/py-tplink-guard"
+Issues = "https://github.com/changyy/py-tplink-guard/issues"
+Changelog = "https://github.com/changyy/py-tplink-guard/blob/main/CHANGELOG.md"
+
+[project.scripts]
+tplink-guard = "tplink_guard.cli:main"
+
+[tool.hatch.version]
+path = "src/tplink_guard/_version.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/tplink_guard"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
