@@ -58,7 +58,8 @@ snapshot taken before it. Tested on Python 3.10–3.14.
   FIPS-197 / SP800-38A vectors.
 - Both TP-Link login schemes, auto-detected: `classic` (MD5 + RSA-signed requests) and
   `sg` (SHA-256 + OAEP + HMAC; implemented and unit-tested, not yet tried on hardware).
-- GitHub Actions builds and publishes only when a release is published.
+- GitHub Actions: unit tests (Python 3.10–3.14) on push / PR while the repo is public;
+  build and PyPI upload when a release is published.
 
 ---
 
